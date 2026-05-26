@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Twitter Bot</string>
+    <string name="accessibility_service_description">Twitter Auto Comment Bot</string>
+</resources>
