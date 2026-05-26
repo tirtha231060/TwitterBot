@@ -1,4 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Twitter Bot</string>
-    <string name="accessibility_service_description">Twitter Auto Comment Bot</string>
+    <string name="app_name">Twitter Assistant</string>
+    <string name="accessibility_description">This service assists the team by automating Twitter comments contextually using Gemini AI.</string>
 </resources>
