@@ -3,26 +3,77 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="20dp"
+    android:gravity="center_horizontal">
 
-    <EditText
-        android:id="@+id/etApiKey"
-        android:layout_width="match_parent"
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Enter Gemini API Key" />
-
-    <EditText
-        android:id="@+id/etLinks"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:gravity="top"
-        android:hint="Paste Twitter links here"
-        android:inputType="textMultiLine" />
+        android:text="Twitter Community Tasker"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="20dp"/>
 
     <Button
-        android:id="@+id/btnStartBot"
+        android:id="@+id/btnUpload"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="START BOT" />
+        android:text="Upload Task File (.txt)" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:weightSum="2">
+        <Button
+            android:id="@+id/btnStart"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Start Task"
+            android:layout_marginEnd="5dp"/>
+        <Button
+            android:id="@+id/btnPause"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Pause"
+            android:layout_marginStart="5dp"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnReset"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Reset Task"
+        android:textColor="#FF0000"
+        android:layout_marginTop="10dp"/>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:elevation="4dp">
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+            
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dashboard Dashboard"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:layout_marginBottom="10dp"/>
+                
+            <TextView android:id="@+id/tvTotal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Total Links: 0" />
+            <TextView android:id="@+id/tvCompleted" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Completed: 0" android:layout_marginTop="5dp"/>
+            <TextView android:id="@+id/tvPending" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Pending: 0" android:layout_marginTop="5dp"/>
+            <TextView android:id="@+id/tvStatus" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Current Action: Idle" android:layout_marginTop="5dp" android:textColor="#008000" android:textStyle="bold"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 </LinearLayout>
