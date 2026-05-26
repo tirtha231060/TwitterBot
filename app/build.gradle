@@ -1,14 +1,36 @@
 plugins {
     id 'com.android.application'
 }
+
 android {
-    namespace 'com.example.twitterautobot'
-    compileSdk 33
+    namespace 'com.example.twitterassistant'
+    compileSdk 34
+
     defaultConfig {
-        applicationId "com.example.twitterautobot"
-        minSdk 21
-        targetSdk 33
+        applicationId "com.example.twitterassistant"
+        minSdk 24
+        targetSdk 34
         versionCode 1
         versionName "1.0"
     }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    
+    // GitHub Actions-এ আমরা Java 17 সেট করেছি, তাই এখানেও Java 17 দিতে হবে
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
+dependencies {
+    // শুধুমাত্র Android-এর নেটিভ UI কম্পোনেন্ট, কোনো থার্ড-পার্টি লাইব্রেরি নেই
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.10.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 }
