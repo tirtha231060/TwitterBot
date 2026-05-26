@@ -1,28 +1,39 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+package com.example.twitterautobot;
 
-    <EditText
-        android:id="@+id/etApiKey"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter Gemini API Key" />
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.provider.Settings;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
-    <EditText
-        android:id="@+id/etLinks"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:gravity="top"
-        android:hint="Paste Twitter links here"
-        android:inputType="textMultiLine" />
+public class MainActivity extends Activity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
-    <Button
-        android:id="@+id/btnStartBot"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="START BOT" />
-</LinearLayout>
+        EditText etApiKey = findViewById(R.id.etApiKey);
+        EditText etLinks = findViewById(R.id.etLinks);
+        Button btnStartBot = findViewById(R.id.btnStartBot);
+
+        btnStartBot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String apiKey = etApiKey.getText().toString().trim();
+                String links = etLinks.getText().toString().trim();
+
+                if (apiKey.isEmpty() || links.isEmpty()) {
+                    Toast.makeText(MainActivity.this, "API Key এবং Links দিন", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                
+                Toast.makeText(MainActivity.this, "Bot চালু করতে Accessibility পারমিশন দিন", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
+                startActivity(intent);
+            }
+        });
+    }
+}
